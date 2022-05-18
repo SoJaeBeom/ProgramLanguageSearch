@@ -14,7 +14,6 @@ export default function SearchInput({ $target, initialState, onChange }) {
   this.render()
 
   this.$element.addEventListener('keyup', (e) => {
-    console.log('!111', e.key)
     const actionIgnoreKeys = [
       'Enter',
       'ArrowUp',
@@ -23,7 +22,6 @@ export default function SearchInput({ $target, initialState, onChange }) {
       'ArrowRight',
     ]
     if (!actionIgnoreKeys.includes(e.key)) {
-      console.log('2222222')
       onChange(e.target.value)
     }
   })

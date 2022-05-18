@@ -18,7 +18,6 @@ export default function Suggestion({ $target, initialState, onSelect }) {
 
   this.render = () => {
     const { items = [], selectedIndex } = this.state
-    console.log(items, selectedIndex)
     if (items.length > 0) {
       this.$element.style.display = 'block'
       this.$element.innerHTML = `
