@@ -5,6 +5,8 @@ export default function SearchInput({ $target, initialState, onChange }) {
 
   $target.appendChild(this.$element)
 
+  let timer
+
   this.render = () => {
     this.$element.innerHTML = `
     <input class="SearchInput__input" type="text" placeholder="프로그램 언어를 입력하세요" value="${this.state}">
@@ -22,7 +24,12 @@ export default function SearchInput({ $target, initialState, onChange }) {
       'ArrowRight',
     ]
     if (!actionIgnoreKeys.includes(e.key)) {
-      onChange(e.target.value)
+      if (timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(() => {
+        onChange(e.target.value)
+      }, 600)
     }
   })
 
