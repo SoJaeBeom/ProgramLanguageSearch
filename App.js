@@ -7,6 +7,7 @@ export default function App({ $target }) {
   this.state = {
     fetchedLanguages: [],
     selectedLanguages: [],
+    keyword: '',
   }
 
   this.setState = (nextState) => {
@@ -17,6 +18,7 @@ export default function App({ $target }) {
     suggestion.setState({
       selectedIndex: 0,
       items: this.state.fetchedLanguages,
+      keyword: this.state.keyword,
     })
     selectedLanguage.setState(this.state.selectedLanguages)
   }
@@ -51,7 +53,6 @@ export default function App({ $target }) {
     },
     onSelect: (language) => {
       alert(language)
-
       const nextSelectedLanguages = [...this.state.selectedLanguages]
 
       const index = nextSelectedLanguages.findIndex(
@@ -66,6 +67,7 @@ export default function App({ $target }) {
       this.setState({
         ...this.state,
         selectedLanguages: nextSelectedLanguages,
+        keyword: language,
       })
     },
   })
